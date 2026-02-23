@@ -11,9 +11,7 @@ function App() {
 	return (
 		<>
 			<ImageCard prompt={"Cat"} />
-			<ImageCard prompt={"Dog"} />
-			<ImageCard prompt={"Gun"} />
-      <ImageCard prompt={"bomb"} />
+
 		</>
 	);
 }
