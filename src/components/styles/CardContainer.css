@@ -1,0 +1,14 @@
+.CardContainer{
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    align-items: center;
+    justify-items: center;
+    height: min-content;
+    gap: 50px;
+    padding: 0px 50px;
+
+    /* max-width: fit-content; */
+
+}

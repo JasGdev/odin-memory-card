@@ -2,8 +2,10 @@
     display: grid;
     grid-template-rows: 8fr 1fr;
     aspect-ratio: 4/3;
-    max-width: 250px;
-    background-color: aliceblue;
+    max-width: 18vw;
+    align-items: center;
+    justify-content: center;
+    /* outline: solid rgb(121, 121, 121); */
 }
 
 .imageCardContainer img{
@@ -14,11 +16,17 @@
     
 }
 
-.imageCardContainer h4{
+.imageCardContainer .imgLabel{
     grid-row: 2/3;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+    margin: 0;
+    min-height: 100%;
+    font-weight: bolder;
 }
 
 

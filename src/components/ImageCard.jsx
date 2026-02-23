@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import catImg from '../assets/cat.jpg'
-import "./styles/ImageCard.css"
+import catImg from "../assets/cat.jpg";
+import "./styles/ImageCard.css";
 
 function ImageCard({ prompt }) {
 	const [imgSrc, setImgSrc] = useState(null);
@@ -23,14 +23,15 @@ function ImageCard({ prompt }) {
 
 	return (
 		<>
-		<div className="imageCardContainer">
-			<img src={catImg} alt="CAT" />
-			<h4>{'Cat'}</h4>
-		</div>
-		
+			<div
+				onClick={() => console.log("clicked")}
+				className="imageCardContainer"
+			>
+				<img src={catImg} alt="CAT" />
+				<div className="imgLabel">{prompt}</div>
+			</div>
 		</>
-	
-	)
+	);
 }
 
 export default ImageCard;
