@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
@@ -28,16 +28,41 @@ function App() {
 		'Penguin',
 		'Koala',
 	]);
-  const [clickedIds, setClickedIds] = useState([])
-  const [currentScore, setCurrentScore] = useState(0)
-  const [maxScore, setMaxScore] = useState(0)
+	const [clickedIds, setClickedIds] = useState([]);
+	const [currentScore, setCurrentScore] = useState(0);
+	const [topScore, setTopScore] = useState(0);
 
+	useEffect(() => {
+		// if clickedIds has duplicate, update topScore, reset currentIds
+		const hasDuplicate =
+			new Set(clickedIds).size !== clickedIds.length;
+		if (hasDuplicate) {
+      if (currentScore > topScore){
+        setTopScore(currentScore)
+      }
+      setCurrentScore(0)
+      setClickedIds([])
+		} 
+    // else update currentScore to clickedIds.length
+    // scramble
+    else {
+			setCurrentScore(clickedIds.length);
+      setPrompts(scramble(prompts))
+		}
+	}, [clickedIds]);
 
 	return (
 		<>
 			<Header />
-			<Scoreboard currentScore={0} topScore={1} />
-			<CardContainer prompts={prompts} />
+			<Scoreboard
+				currentScore={currentScore}
+				topScore={topScore}
+			/>
+			<CardContainer
+				prompts={prompts}
+				clickedIds={clickedIds}
+				setClickedIds={setClickedIds}
+			/>
 		</>
 	);
 }

@@ -3,7 +3,7 @@ import catImg from "../assets/cat.jpg";
 import blackImg from '../assets/black.jpg'
 import "./styles/ImageCard.css";
 
-function ImageCard({ prompt }) {
+function ImageCard({ prompt, onClick}) {
 	const [imgSrc, setImgSrc] = useState(null);
 
 	// useEffect(() => {
@@ -25,7 +25,7 @@ function ImageCard({ prompt }) {
 	return (
 		<>
 			<div
-				onClick={() => console.log("clicked")}
+				onClick={onClick}
 				className="imageCardContainer"
 			>
 				<img src={blackImg} alt="CAT" />
