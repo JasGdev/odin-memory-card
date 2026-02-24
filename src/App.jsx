@@ -9,7 +9,8 @@ import Header from './components/Header';
 import Scoreboard from './components/Scoreboard';
 
 function scramble(array) {
-	return array.sort(() => Math.random() - 0.5);
+	const newArray = array.slice();
+	return newArray.sort(() => Math.random() - 0.5);
 }
 
 function App() {
@@ -32,24 +33,24 @@ function App() {
 	const [currentScore, setCurrentScore] = useState(0);
 	const [topScore, setTopScore] = useState(0);
 
-	useEffect(() => {
+	function onClick() {
 		// if clickedIds has duplicate, update topScore, reset currentIds
 		const hasDuplicate =
 			new Set(clickedIds).size !== clickedIds.length;
 		if (hasDuplicate) {
-      if (currentScore > topScore){
-        setTopScore(currentScore)
-      }
-      setCurrentScore(0)
-      setClickedIds([])
-		} 
-    // else update currentScore to clickedIds.length
-    // scramble
-    else {
-			setCurrentScore(clickedIds.length);
-      setPrompts(scramble(prompts))
+			if (currentScore > topScore) {
+				setTopScore(currentScore);
+			}
+			setCurrentScore(0);
+			setClickedIds([]);
 		}
-	}, [clickedIds]);
+		// else update currentScore to clickedIds.length
+		// scramble
+		else {
+			setCurrentScore((prev) => {return prev+1});
+			setPrompts(scramble(prompts));
+		}
+	}
 
 	return (
 		<>
@@ -62,6 +63,7 @@ function App() {
 				prompts={prompts}
 				clickedIds={clickedIds}
 				setClickedIds={setClickedIds}
+        onClick={onClick}
 			/>
 		</>
 	);

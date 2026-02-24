@@ -6,6 +6,7 @@ function CardContainer({
 	prompts,
 	clickedIds,
 	setClickedIds,
+    onClick
 }) {
 	function handleClick(id) {
 		setClickedIds((prev) => {
@@ -13,6 +14,7 @@ function CardContainer({
 			newClickedIds.push(id);
 			return newClickedIds;
 		});
+        onClick();
 		console.log(clickedIds);
 	}
 
