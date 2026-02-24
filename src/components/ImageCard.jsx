@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import catImg from "../assets/cat.jpg";
+import blackImg from '../assets/black.jpg'
 import "./styles/ImageCard.css";
 
 function ImageCard({ prompt }) {
@@ -27,7 +28,7 @@ function ImageCard({ prompt }) {
 				onClick={() => console.log("clicked")}
 				className="imageCardContainer"
 			>
-				<img src={catImg} alt="CAT" />
+				<img src={blackImg} alt="CAT" />
 				<div className="imgLabel">{prompt}</div>
 			</div>
 		</>
